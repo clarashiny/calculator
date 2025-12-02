@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .calculator {
+            width: 350px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #777;
+            border-radius: 10px;
+            background: #f6cece;
+        }
+
+        #display {
+            width: 100%;
+            height: 40px;
+            font-size: 22px;
+            margin-bottom: 15px;
+            padding: 5px;
+            text-align: right;
+            border: 1px solid #555;
+            border-radius: 5px;
+             background-color: rgb(181, 189, 186);
+
+        }
+
+        .buttons button {
+            width: 55px;
+            height: 40px;
+            margin: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: rgb(181, 189, 186);
+
+        }
+        .buttons{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            /* background-color: #777; */
+        
+           
+        
+        }
+
+        .clear {
+            background: rgb(60, 52, 52);
+            color: rgb(34, 32, 32);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Calculator</h1>
+</body>
+   <div class="calculator">
+        <input type="text" id="display" placeholder="0">
+
+        <div class="buttons">
+           
+            <button onclick="number('7')">7</button>
+            <button onclick="number('8')">8</button>
+            <button onclick="number('9')">9</button>
+            <button onclick="number('/')">÷</button>
+
+            <button onclick="number('4')">4</button>
+            <button onclick="number('5')">5</button>
+            <button onclick="number('6')">6</button>
+            <button onclick="number('*')">*</button>
+
+            <button onclick="number('1')">1</button>
+            <button onclick="number('2')">2</button>
+            <button onclick="number('3')">3</button>
+            <button onclick="number('-')">-</button>
+
+            <button onclick="number('0')">0</button>
+            <button onclick="number('.')">.</button>
+            <button onclick="number('+')">+</button>
+            <button onclick="calculate()">=</button>
+
+           
+            <button onclick="square()">x²</button>
+            <button onclick="cube()">x³</button>
+            <button onclick="clearDisplay()" class="clear">C</button>
+        </div>
+    </div>
+
+    <script>
+        function number(value) {
+            document.getElementById("display").value += value;
+        }
+
+        function calculate() {
+            let exp = document.getElementById("display").value;
+            if (exp) {
+                document.getElementById("display").value = eval(exp);
+            }
+        }
+
+        function square() {
+            const num = document.getElementById("display").value;
+            document.getElementById("display").value = num * num;
+        }
+
+        function cube() {
+            const num = document.getElementById("display").value;
+            document.getElementById("display").value = num * num * num;
+        }
+
+        function clearDisplay() {
+            document.getElementById("display").value = "";
+        }
+    </script>
+
+</body>
+
+</html>
